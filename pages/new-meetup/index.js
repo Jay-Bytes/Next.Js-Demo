@@ -12,7 +12,6 @@ const NewMeetup = () => {
       },
     });
     const data = await response.json();
-    console.log('data', data);
   };
 
   return (

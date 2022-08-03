@@ -1,18 +1,27 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import classes from '../../../styles/meetupId.module.css';
 
 const MeetingById = (props) => {
+  const router = useRouter();
+
   return (
     <>
       <Head>
         <title>{props.meetUpById.title}</title>
         <meta title='description' content={props.meetUpById.description} />
       </Head>
-      <div>
-        <img src={props.meetUpById.image} alt={props.meetUpById.title} />
+      <div className={classes.meetupDetails}>
+        <img style={{ width: '100%' }} src={props.meetUpById.image} alt={props.meetUpById.title} />
         <h1>{props.meetUpById.title}</h1>
         <address>{props.meetUpById.address}</address>
         <p>{props.meetUpById.description}</p>
+
+        <div style={{ display: 'flex', justifyContent: 'center' }} className={classes.actions}>
+          <button onClick={() => router.push('/')}>Go Back</button>
+        </div>
       </div>
     </>
   );

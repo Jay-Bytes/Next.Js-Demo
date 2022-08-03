@@ -14,7 +14,7 @@ const MeetingById = (props) => {
         <meta title='description' content={props.meetUpById.description} />
       </Head>
       <div className={classes.meetupDetails}>
-        <img style={{ width: '100%' }} src={props.meetUpById.image} alt={props.meetUpById.title} />
+        <img style={{ width: '100%', height: '450px', objectFit: 'cover' }} src={props.meetUpById.image} alt={props.meetUpById.title} />
         <h1>{props.meetUpById.title}</h1>
         <address>{props.meetUpById.address}</address>
         <p>{props.meetUpById.description}</p>

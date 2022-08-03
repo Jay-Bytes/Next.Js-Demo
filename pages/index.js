@@ -14,7 +14,7 @@ const HomePage = (props) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const client = await MongoClient.connect('mongodb+srv://Jay:eRVobBS5tDKCAVWU@cluster0.asjuthr.mongodb.net/meetups?retryWrites=true&w=majority');
   const db = client.db();
   const meetupCollections = db.collection('meetups');
@@ -33,7 +33,6 @@ export const getStaticProps = async () => {
         id: meetup._id.toString(),
       })),
     },
-    revalidate: 1,
   };
 };
 
